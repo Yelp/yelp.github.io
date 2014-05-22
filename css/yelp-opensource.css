@@ -1,7 +1,17 @@
+.tabs-pill {
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 960px;
+}
+
 .projects.container {
   margin: 0 auto;
   margin-top: 15px;
   width: 960px;
+}
+
+.projects.forked {
+  display: none;
 }
 
 .project.island {
