@@ -4,13 +4,12 @@
     <title>Yelp &amp; Open Source</title>
     <link rel="stylesheet" type="text/css" href="css/styleguide.css">
     <link rel="stylesheet" type="text/css" href="css/yelp-opensource.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script>
       $(document).ready(function() {
         $.get('https://api.github.com/users/yelp/repos?per_page=100', function(data) {
-          console.log(data);
-
           data.forEach(function(repository) {
             if (repository['fork'] === false) {
               $('.projects').append(build_repository_container(repository));
@@ -23,9 +22,11 @@
             '<div class="project island">',
               '<h3>', repository['name'], '</h3>',
               '<p>', repository['description'], '</p>',
-              '<a href="', repository['html_url'], '">View source</a> ',
-              '<span class="chiclet-link">', repository['stargazers_count'], '</span> ',
-              '<span class="chiclet-link">', repository['forks_count'], '</span> ',
+              '<div class="bottom-links">',
+                '<a href="', repository['html_url'], '"><i class="icon-github"></i> View source</a> ',
+                '<span class="chiclet-link"><i class="icon-star"></i> ', repository['stargazers_count'], '</span> ',
+                '<span class="chiclet-link"><i class="icon-code-fork"></i> ', repository['forks_count'], '</span> ',
+              '</div>',
             '</div>'
           ].join('');
         }
