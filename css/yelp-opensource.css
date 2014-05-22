@@ -1,0 +1,14 @@
+.projects.container {
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 960px;
+}
+
+.project.island {
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  height: 100px;
+  width: 285px;
+}

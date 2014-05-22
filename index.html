@@ -3,6 +3,34 @@
   <head>
     <title>Yelp &amp; Open Source</title>
     <link rel="stylesheet" type="text/css" href="css/styleguide.css">
+    <link rel="stylesheet" type="text/css" href="css/yelp-opensource.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $.get('https://api.github.com/users/yelp/repos?per_page=100', function(data) {
+          console.log(data);
+
+          data.forEach(function(repository) {
+            if (repository['fork'] === false) {
+              $('.projects').append(build_repository_container(repository));
+            } 
+          });
+        });
+
+        var build_repository_container = function(repository) {
+          return [
+            '<div class="project island">',
+              '<h3>', repository['name'], '</h3>',
+              '<p>', repository['description'], '</p>',
+              '<a href="', repository['html_url'], '">View source</a> ',
+              '<span class="chiclet-link">', repository['stargazers_count'], '</span> ',
+              '<span class="chiclet-link">', repository['forks_count'], '</span> ',
+            '</div>'
+          ].join('');
+        }
+      });
+    </script>
   </head>
   <body id="yelp_main_body" class="ytype borderless">
     <div id="wrap">
@@ -23,6 +51,9 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="projects container">
       </div>
     </div>
   </body>
