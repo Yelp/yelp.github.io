@@ -19,7 +19,7 @@
 
         var build_repository_container = function(repository) {
           return [
-            '<div class="project island">',
+            '<div class="project island ', repository['language'],'">',
               '<h3>', repository['name'], '</h3>',
               '<p>', repository['description'], '</p>',
               '<div class="bottom-links">',
