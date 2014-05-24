@@ -50,7 +50,7 @@ $(document).ready(function() {
   var build_repository_container = function(repository) {
     return [
       '<div class="project island ', repository['language'],'">',
-        '<h3>', repository['name'], '</h3>',
+        '<h3><a href="', repository['html_url'], '">', repository['name'], '</a></h3>',
         '<p>', repository['description'], '</p>',
         '<div class="bottom-links">',
           '<a href="', repository['html_url'], '"><i class="icon-github"></i> View source</a> ',
