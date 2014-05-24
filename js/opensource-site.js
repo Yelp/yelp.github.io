@@ -50,11 +50,11 @@ $(document).ready(function() {
   var build_repository_container = function(repository) {
     return [
       '<div class="project island ', repository['language'],'">',
-        '<h3><a href="', repository['html_url'], '">', repository['name'], '</a></h3>',
+        '<h3><a href="', repository['html_url'], '" target="_blank">', repository['name'], '</a></h3>',
         '<p>', repository['description'], '</p>',
         '<div class="bottom-links">',
-          '<a href="', repository['html_url'], '" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
-          '<a href="#" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> ',
+          '<a href="', repository['html_url'], '" target="_blank" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
+          check_for_blog_post(repository['name']),
         '</div>',
         '<div class="top-links">',
           '<span class="chiclet-link"><i class="icon-star"></i> ', repository['stargazers_count'], '</span> ',
@@ -62,5 +62,11 @@ $(document).ready(function() {
         '</div>',
       '</div>'
     ].join('');
+  }
+
+  var check_for_blog_post = function(name) {
+    if (oss_projects[name] && oss_projects[name]['blog_post']) {
+      return '<a href="'+ oss_projects[name]['blog_post'] +'" target="_blank" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> '
+    }
   }
 });
