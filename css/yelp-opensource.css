@@ -2,6 +2,11 @@ h3 a {
   color: #c41200;
 }
 
+h3 a i {
+  color: #000;
+  font-size: 14px;
+}
+
 .tabs-pill {
   margin: 0 auto;
   margin-top: 15px;
