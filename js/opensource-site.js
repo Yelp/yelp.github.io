@@ -9,8 +9,11 @@ $(document).ready(function() {
 
   $.get('https://api.github.com/users/yelp/repos?per_page=100', function(data) {
     data.forEach(function(repository) {
-      if (repository['fork'] === false) {
-        $('.projects.not-forked').append(build_repository_container(repository));
+      if (repository['fork'] === false && is_featured(repository['name'])) {
+        $('.projects.not-forked .featured').append(build_repository_container(repository));
+        not_forked += 1;
+      } else if (repository['fork'] === false){
+        $('.projects.not-forked .not-featured').append(build_repository_container(repository));
         not_forked += 1;
       } else {
         $('.projects.forked').append(build_repository_container(repository));
@@ -68,5 +71,9 @@ $(document).ready(function() {
     if (oss_projects[name] && oss_projects[name]['blog_post']) {
       return '<a href="'+ oss_projects[name]['blog_post'] +'" target="_blank" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> '
     }
+  }
+
+  var is_featured = function(name) {
+    return oss_projects[name] && oss_projects[name]['featured'];
   }
 });

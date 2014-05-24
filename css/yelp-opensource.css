@@ -23,6 +23,10 @@ h3 a i {
   display: none;
 }
 
+.projects .hr-line {
+  width: 945px;
+}
+
 .project.island {
   border-bottom: 3px solid #ccc;
   float: left;
