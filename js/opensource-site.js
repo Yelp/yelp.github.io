@@ -55,6 +55,8 @@ $(document).ready(function() {
         '<div class="bottom-links">',
           '<a href="', repository['html_url'], '" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
           '<a href="#" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> ',
+        '</div>',
+        '<div class="top-links">',
           '<span class="chiclet-link"><i class="icon-star"></i> ', repository['stargazers_count'], '</span> ',
           '<span class="chiclet-link"><i class="icon-code-fork"></i> ', repository['forks_count'], '</span> ',
         '</div>',
