@@ -19,6 +19,10 @@ h3 a i {
   width: 960px;
 }
 
+.projects.not-forked h2 {
+  clear: both;
+}
+
 .projects.forked {
   display: none;
 }
@@ -45,6 +49,10 @@ h3 a i {
 
 .project.island.Python {
   border-bottom: 3px solid #b2b200;
+}
+
+.project.island.deprecated-project {
+  opacity: 0.35;
 }
 
 .project .bottom-links {

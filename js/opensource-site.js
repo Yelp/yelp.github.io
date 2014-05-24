@@ -10,9 +10,12 @@ $(document).ready(function() {
   $.get('https://api.github.com/users/yelp/repos?per_page=100', function(data) {
     data.forEach(function(repository) {
       if (repository['fork'] === false && is_featured(repository['name'])) {
-        $('.projects.not-forked .featured').append(build_repository_container(repository));
+        $('.projects.not-forked .featured').append(build_repository_container(repository, 'featured-project'));
         not_forked += 1;
-      } else if (repository['fork'] === false){
+      } else if (repository['fork'] === false && is_deprecated(repository['name'])) {
+        $('.projects.not-forked .deprecated').append(build_repository_container(repository, 'deprecated-project'));
+        not_forked += 1;
+      } else if (repository['fork'] === false) {
         $('.projects.not-forked .not-featured').append(build_repository_container(repository));
         not_forked += 1;
       } else {
@@ -50,9 +53,10 @@ $(document).ready(function() {
     $(container).show();
   });
 
-  var build_repository_container = function(repository) {
+  var build_repository_container = function(repository, classes) {
+    console.log(classes);
     return [
-      '<div class="project island ', repository['language'],'">',
+      '<div class="project island ', repository['language'], ' ', classes, '">',
         '<h3><a href="', repository['html_url'], '" target="_blank">', repository['name'], '</a></h3>',
         '<p>', repository['description'], '</p>',
         '<div class="bottom-links">',
@@ -75,5 +79,9 @@ $(document).ready(function() {
 
   var is_featured = function(name) {
     return oss_projects[name] && oss_projects[name]['featured'];
+  }
+
+  var is_deprecated = function(name) {
+    return oss_projects[name] && oss_projects[name]['deprecated'];
   }
 });
