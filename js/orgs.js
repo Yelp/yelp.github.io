@@ -46,9 +46,6 @@ Organization = function(name, repos) {
     featured = [];
     repos.forEach(function(repo) {
       if (repo.featured && !repo.fork) {
-        console.log(repo.name);
-        console.log(repo.featured);
-        console.log(repo.position);
         if (repo.position) {
           featured[repo.position] = repo
         } else {
@@ -57,7 +54,6 @@ Organization = function(name, repos) {
       }
     });
 
-    console.log(featured);
     return featured;
   }
 
