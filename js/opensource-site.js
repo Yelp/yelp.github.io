@@ -1,39 +1,27 @@
 $(document).ready(function() {
-  var stars = 0;
-  var forks = 0;
-  var users = 0;
   var projects = 0;
 
   var not_forked = 0;
   var forked = 0;
+  var repos = [];
+  var org = new Organization('yelp', []);
 
   $.get('https://api.github.com/users/yelp/repos?per_page=100', function(data) {
     data.forEach(function(repository) {
-      if (repository['fork'] === false && is_featured(repository['name'])) {
-        $('.projects.not-forked .featured').append(build_repository_container(repository, 'featured-project'));
-        not_forked += 1;
-      } else if (repository['fork'] === false && is_deprecated(repository['name'])) {
-        $('.projects.not-forked .deprecated').append(build_repository_container(repository, 'deprecated-project'));
-        not_forked += 1;
-      } else if (repository['fork'] === false) {
-        $('.projects.not-forked .not-featured').append(build_repository_container(repository));
-        not_forked += 1;
-      } else {
-        $('.projects.forked').append(build_repository_container(repository));
-        forked += 1;
-      }
-
-      stars += repository['stargazers_count'];
-      forks += repository['forks_count'];
-      projects = data.length;
+      org.repos.push(new Repository(repository));
     });
 
-    $('.not-forked .count').html(not_forked);
-    $('.forked .count').html(forked);
+    org.add_repos_to_container($('.projects.not-forked .featured'), org.featured_repos);
+    org.add_repos_to_container($('.projects.not-forked .deprecated'), org.deprecated_repos);
+    org.add_repos_to_container($('.projects.not-forked .not-featured'), org.regular_repos);
+    org.add_repos_to_container($('.projects.forked'), org.forked_repos);
 
-    $('.stats-stargazers').html(stars + " stargazers watching our projects");
-    $('.stats-forks').html(forks + " forks on our projects");
-    $('.stats-projects').html(projects + " projects open sourced by us or being contributed to");
+    $('.not-forked .count').html(org.forked_count());
+    $('.forked .count').html(org.not_forked_count());
+
+    $('.stats-stargazers').html(org.total_watchers() + " stargazers watching our projects");
+    $('.stats-forks').html(org.total_forks() + " forks on our projects");
+    $('.stats-projects').html(org.repos.length + " projects open sourced by us or being contributed to");
   });
 
   $.get('https://api.github.com/orgs/yelp/members', function(data) {
@@ -41,7 +29,7 @@ $(document).ready(function() {
     $('.stats-users').html("We have " + users + " Yelpers contributing to open source projects");
   });
 
-  $('.tabs-pill li').click(function(e, that) {
+  $('.tabs-pill li').click(function(e) {
     e.preventDefault();
 
     $('.tabs-pill li').removeClass('selected');
@@ -52,36 +40,4 @@ $(document).ready(function() {
 
     $(container).show();
   });
-
-  var build_repository_container = function(repository, classes) {
-    console.log(classes);
-    return [
-      '<div class="project island ', repository['language'], ' ', classes, '">',
-        '<h3><a href="', repository['html_url'], '" target="_blank">', repository['name'], '</a></h3>',
-        '<p>', repository['description'], '</p>',
-        '<div class="bottom-links">',
-          '<a href="', repository['html_url'], '" target="_blank" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
-          check_for_blog_post(repository['name']),
-        '</div>',
-        '<div class="top-links">',
-          '<span class="chiclet-link"><i class="icon-star"></i> ', repository['stargazers_count'], '</span> ',
-          '<span class="chiclet-link"><i class="icon-code-fork"></i> ', repository['forks_count'], '</span> ',
-        '</div>',
-      '</div>'
-    ].join('');
-  }
-
-  var check_for_blog_post = function(name) {
-    if (oss_projects[name] && oss_projects[name]['blog_post']) {
-      return '<a href="'+ oss_projects[name]['blog_post'] +'" target="_blank" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> '
-    }
-  }
-
-  var is_featured = function(name) {
-    return oss_projects[name] && oss_projects[name]['featured'];
-  }
-
-  var is_deprecated = function(name) {
-    return oss_projects[name] && oss_projects[name]['deprecated'];
-  }
 });
