@@ -34,7 +34,7 @@ Repository = function(repo) {
     } else if (this.deprecated) {
       return 'deprecated-project';
     }
-  }();
+  };
 
   // methods
   this.get_blog_href = function() {
@@ -45,7 +45,7 @@ Repository = function(repo) {
 
   this.get_container = function() {
     return [
-      '<div class="project island ', this.language, ' ', this.lasses, '">',
+      '<div class="project island ', this.language, ' ', this.classes(), '">',
         '<h3><a href="', this.url, '" target="_blank">', this.name, '</a></h3>',
         '<p>', this.description, '</p>',
         '<div class="bottom-links">',
