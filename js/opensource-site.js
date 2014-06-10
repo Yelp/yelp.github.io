@@ -11,16 +11,16 @@ $(document).ready(function() {
       org.repos.push(new Repository(repository));
     });
 
-    org.add_repos_to_container($('.projects.not-forked .featured'), org.featured_repos);
-    org.add_repos_to_container($('.projects.not-forked .deprecated'), org.deprecated_repos);
-    org.add_repos_to_container($('.projects.not-forked .not-featured'), org.regular_repos);
-    org.add_repos_to_container($('.projects.forked'), org.forked_repos);
+    org.addReposToContainer($('.projects.not-forked .featured'), org.featuredRepos());
+    org.addReposToContainer($('.projects.not-forked .deprecated'), org.deprecatedRepos());
+    org.addReposToContainer($('.projects.not-forked .not-featured'), org.regularRepos());
+    org.addReposToContainer($('.projects.forked'), org.forkedRepos());
 
-    $('.not-forked .count').html(org.forked_count());
-    $('.forked .count').html(org.not_forked_count());
+    $('.not-forked .count').html(org.forkedCount());
+    $('.forked .count').html(org.notForkedCount());
 
-    $('.stats-stargazers').html(org.total_watchers() + " stargazers watching our projects");
-    $('.stats-forks').html(org.total_forks() + " forks on our projects");
+    $('.stats-stargazers').html(org.totalWatchers() + " stargazers watching our projects");
+    $('.stats-forks').html(org.totalForks() + " forks on our projects");
     $('.stats-projects').html(org.repos.length + " projects open sourced by us or being contributed to");
   });
 

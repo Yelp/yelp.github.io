@@ -1,99 +1,99 @@
 Organization = function(name, repos) {
   this.name = name;
   this.repos = repos;
+}
 
-  this.total_forks = function() {
-    total = 0;
-    repos.forEach(function(repo) {
-      total += repo.forks;
-    });
+Organization.prototype.totalForks = function() {
+  total = 0;
+  this.repos.forEach(function(repo) {
+    total += repo.forks;
+  });
 
-    return total;
-  }
+  return total;
+}
 
-  this.total_watchers = function() {
-    total = 0;
-    repos.forEach(function(repo) {
-      total += repo.watchers;
-    });
+Organization.prototype.totalWatchers = function() {
+  total = 0;
+  this.repos.forEach(function(repo) {
+    total += repo.watchers;
+  });
 
-    return total;
-  }
+  return total;
+}
 
-  this.forked_count = function() {
-    total = 0;
-    repos.forEach(function(repo) {
-      if (repo.fork) {
-        total += 1;
+Organization.prototype.forkedCount = function() {
+  total = 0;
+  this.repos.forEach(function(repo) {
+    if (repo.fork) {
+      total += 1;
+    }
+  });
+
+  return total;
+}
+
+Organization.prototype.notForkedCount = function() {
+  total = 0;
+  this.repos.forEach(function(repo) {
+    if (!repo.fork) {
+      total += 1;
+    }
+  });
+
+  return total;
+}
+
+Organization.prototype.featuredRepos = function() {
+  featured = [];
+  this.repos.forEach(function(repo) {
+    if (repo.featured() && !repo.fork) {
+      if (repo.position) {
+        featured[repo.position] = repo
+      } else {
+        featured.push(repo);
       }
-    });
+    }
+  });
 
-    return total;
-  }
+  return featured;
+}
 
-  this.not_forked_count = function() {
-    total = 0;
-    repos.forEach(function(repo) {
-      if (!repo.fork) {
-        total += 1;
-      }
-    });
+Organization.prototype.deprecatedRepos = function() {
+  deprecated = [];
+  this.repos.forEach(function(repo) {
+    if (repo.deprecated() && !repo.fork) {
+      deprecated.push(repo);
+    }
+  });
 
-    return total;
-  }
-
-  this.featured_repos = function() {
-    featured = [];
-    repos.forEach(function(repo) {
-      if (repo.featured && !repo.fork) {
-        if (repo.position) {
-          featured[repo.position] = repo
-        } else {
-          featured.push(repo);
-        }
-      }
-    });
-
-    return featured;
-  }
-
-  this.deprecated_repos = function() {
-    deprecated = [];
-    repos.forEach(function(repo) {
-      if (repo.deprecated && !repo.fork) {
-        deprecated.push(repo);
-      }
-    });
-
-    return deprecated;
-  }
+  return deprecated;
+}
 
 
-  this.forked_repos = function() {
-    forked = [];
-    repos.forEach(function(repo) {
-      if (repo.fork) {
-        forked.push(repo);
-      }
-    });
+Organization.prototype.forkedRepos = function() {
+  forked = [];
+  this.repos.forEach(function(repo) {
+    if (repo.fork) {
+      forked.push(repo);
+    }
+  });
 
-    return forked;
-  }
+  return forked;
+}
 
-  this.regular_repos = function() {
-    regular = [];
-    repos.forEach(function(repo) {
-      if (!repo.fork && !repo.featured && !repo.deprecated) {
-        regular.push(repo);
-      }
-    });
+Organization.prototype.regularRepos = function() {
+  regular = [];
+  this.repos.forEach(function(repo) {
+    if (!repo.fork && !repo.featured() && !repo.deprecated()) {
+      regular.push(repo);
+    }
+  });
 
-    return regular;
-  }
+  return regular;
+}
 
-  this.add_repos_to_container = function(container, repo_func) {
-    repo_func().forEach(function(repo) {
-      container.append(repo.get_container());
-    });
-  }
+Organization.prototype.addReposToContainer = function(container, repos) {
+  repos.forEach(function(repo) {
+    container.append(repo.getContainer());
+  });
 }

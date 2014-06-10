@@ -7,56 +7,49 @@ Repository = function(repo) {
   this.fork        = repo.fork;
   this.watchers    = repo.watchers;
   this.forks       = repo.forks;
-  
+}
 
-  // attributes defined from hardcoded oss projects variables
-  this.blog_post = function(name) {
-    if (oss_projects[name] && oss_projects[name].blog_post) {
-      return oss_projects[name].blog_post;
-    }
-  }(repo.name);
-
-  this.featured = function(name) {
-    return oss_projects[name] && oss_projects[name].featured;
-  }(repo.name);
-
-  this.deprecated = function(name) {
-    return oss_projects[name] && oss_projects[name].deprecated;
-  }(repo.name);
-
-  this.position = function(name) {
-    return oss_projects[name] && oss_projects[name].position;
-  }(repo.name);
-
-  this.classes = function() {
-    if (this.featured) {
-      return 'featured-project';
-    } else if (this.deprecated) {
-      return 'deprecated-project';
-    }
-  };
-
-  // methods
-  this.get_blog_href = function() {
-    if (this.blog_post) {
-      return '<a href="'+ this.blog_post +'" target="_blank" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> ';
-    }
+Repository.prototype.blogPost = function() {
+  if (oss_projects[this.name] && oss_projects[this.name].blog_post) {
+    return oss_projects[this.name].blog_post;
   }
+}
 
-  this.get_container = function() {
-    return [
-      '<div class="project island ', this.language, ' ', this.classes(), '">',
-        '<h3><a href="', this.url, '" target="_blank">', this.name, '</a></h3>',
-        '<p>', this.description, '</p>',
-        '<div class="bottom-links">',
-          '<a href="', this.url, '" target="_blank" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
-          this.get_blog_href(),
-        '</div>',
-        '<div class="top-links">',
-          '<span class="chiclet-link"><i class="icon-star"></i> ', this.watchers, '</span> ',
-          '<span class="chiclet-link"><i class="icon-code-fork"></i> ', this.forks, '</span> ',
-        '</div>',
-      '</div>'
-    ].join('') 
+Repository.prototype.featured = function() {
+  return oss_projects[this.name] && oss_projects[this.name].featured;
+}
+
+Repository.prototype.deprecated = function() {
+  return oss_projects[this.name] && oss_projects[this.name].deprecated;
+}
+
+Repository.prototype.classes = function() {
+  if (this.featured()) {
+    return 'featured-project';
+  } else if (this.deprecated()) {
+    return 'deprecated-project';
   }
+}
+
+Repository.prototype.getBlogLink = function() {
+  if (this.blogPost()) {
+    return '<a href="'+ this.blogPost() +'" target="_blank" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> ';
+  }
+}
+
+Repository.prototype.getContainer = function() {
+  return [
+    '<div class="project island ', this.language, ' ', this.classes(), '">',
+      '<h3><a href="', this.url, '" target="_blank">', this.name, '</a></h3>',
+      '<p>', this.description, '</p>',
+      '<div class="bottom-links">',
+        '<a href="', this.url, '" target="_blank" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
+        this.getBlogLink(),
+      '</div>',
+      '<div class="top-links">',
+        '<span class="chiclet-link"><i class="icon-star"></i> ', this.watchers, '</span> ',
+        '<span class="chiclet-link"><i class="icon-code-fork"></i> ', this.forks, '</span> ',
+      '</div>',
+    '</div>'
+  ].join('')
 }
