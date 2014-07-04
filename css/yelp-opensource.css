@@ -7,10 +7,16 @@ h3 a i {
   font-size: 14px;
 }
 
+.top-shelf-grey .container {
+  background: url(/img/illustration.png) no-repeat right bottom;
+  height: 220px;
+  width: 900px;
+}
+
 .main-container {
   margin: 0 auto;
   margin-top: 30px;
-  width: 960px;
+  width: 900px;
 }
 
 .layout-block .column-beta { width: 75%; }
