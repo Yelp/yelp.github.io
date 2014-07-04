@@ -47,8 +47,8 @@ Organization.prototype.featuredRepos = function() {
   featured = [];
   this.repos.forEach(function(repo) {
     if (repo.featured() && !repo.fork) {
-      if (repo.position) {
-        featured[repo.position] = repo
+      if (repo.position()) {
+        featured[repo.position()] = repo
       } else {
         featured.push(repo);
       }

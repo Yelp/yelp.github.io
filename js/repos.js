@@ -23,6 +23,12 @@ Repository.prototype.deprecated = function() {
   return oss_projects[this.name] && oss_projects[this.name].deprecated;
 }
 
+Repository.prototype.position = function() {
+  if (oss_projects[this.name] && oss_projects[this.name].position) {
+    return oss_projects[this.name].position;
+  }
+}
+
 Repository.prototype.classes = function() {
   if (this.featured()) {
     return 'featured-project';
