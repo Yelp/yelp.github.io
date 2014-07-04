@@ -33,23 +33,49 @@ Repository.prototype.classes = function() {
 
 Repository.prototype.getBlogLink = function() {
   if (this.blogPost()) {
-    return '<a href="'+ this.blogPost() +'" target="_blank" class="chiclet-link inner-opaque"><i class="icon-external-link"></i> Blog post</a> ';
+    return '<a href="'+ this.blogPost() +'" target="_blank"><i class="fa fa-file-text-o"></i> Blog post</a> ';
   }
 }
 
 Repository.prototype.getContainer = function() {
   return [
-    '<div class="project island ', this.language, ' ', this.classes(), '">',
-      '<h3><a href="', this.url, '" target="_blank">', this.name, '</a></h3>',
-      '<p>', this.description, '</p>',
-      '<div class="bottom-links">',
-        '<a href="', this.url, '" target="_blank" class="chiclet-link inner-opaque"><i class="icon-github"></i> View source</a> ',
-        this.getBlogLink(),
-      '</div>',
-      '<div class="top-links">',
-        '<span class="chiclet-link"><i class="icon-star"></i> ', this.watchers, '</span> ',
-        '<span class="chiclet-link"><i class="icon-code-fork"></i> ', this.forks, '</span> ',
-      '</div>',
+    '<div class="project island-light island-stack island ', this.language, ' ', this.classes(), '">',
+      this.featuredImage(),
+      this.repoContent(),
+      this.bottomLinks(),
     '</div>'
-  ].join('')
+  ].join('');
+}
+
+Repository.prototype.featuredImage = function() {
+  if (this.featured()) {
+    return [
+      '<div class="island-item featured-image">',
+        '<img src="http://placehold.it/200x100">',
+      '</div>'
+    ].join('');
+  }
+}
+
+Repository.prototype.repoContent = function() {
+  return [
+    '<div class="island-item">',
+      '<h3><a href="', this.url, '" target="_blank">', this.name, '</a></h3>',
+      '<div class="repo-info">',
+        '<span><i class="fa fa-star"></i> ', this.watchers, '</span> ',
+        '<span><i class="fa fa-code-fork"></i> ', this.forks, '</span>',
+      '</div>',
+      '<p>', this.description, '</p>',
+    '</div>'
+  ].join('');
+}
+
+Repository.prototype.bottomLinks = function() {
+  if (this.blogPost()) {
+    return [
+      '<div class="island-item bottom-links">',
+        this.getBlogLink(),
+      '</div>'
+    ].join('');
+  }
 }

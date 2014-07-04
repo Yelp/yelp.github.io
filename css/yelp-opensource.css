@@ -7,69 +7,77 @@ h3 a i {
   font-size: 14px;
 }
 
-.tabs-pill {
+.main-container {
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 30px;
   width: 960px;
 }
 
-.projects.container {
-  margin: 0 auto;
-  margin-top: 15px;
-  width: 960px;
-}
+.layout-block .column-alpha { width: 25%; }
+.layout-block .column-beta { width: 75%; }
 
-.projects.not-forked h2 {
-  clear: both;
-}
-
-.projects.forked {
-  display: none;
-}
-
-.projects .hr-line {
-  width: 945px;
-}
+.projects { width: 702px; }
+.projects.not-forked h2 { clear: both; }
+.projects.forked { display: none; }
 
 .project.island {
-  border-bottom: 3px solid #ccc;
   float: left;
   margin-bottom: 10px;
   margin-right: 10px;
 
   position: relative;
 
+  height: 200px;
+  width: 200px;
+}
+
+.project.island.featured-project {
+  height: 300px;
+}
+
+.project:hover {
+  background: #f5f5f1;
+}
+
+.project .island-item.featured-image {
   height: 100px;
-  width: 285px;
-}
-
-.project.island.Ruby {
-  border-bottom: 3px solid #9b111e;
-}
-
-.project.island.Python {
-  border-bottom: 3px solid #b2b200;
-}
-
-.project.island.deprecated-project {
-  opacity: 0.35;
+  padding: 0;
 }
 
 .project .bottom-links {
+  border-radius: 2px;
+  width: 178px;
+
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 0px;
 }
 
-.project .top-links {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.project.island-light.island-stack.island > .island-item {
+  border-color: #fff !important;
 }
 
-.project .bottom-links a i {
-  color: #000;
+.project:hover.island-light.island-stack.island > .island-item {
+  border-color: #e5e5e1 !important;
 }
+
+.project:hover .bottom-links {
+  background: #fff;
+}
+
+.project .bottom-links a {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.project .repo-info {
+  color: #ccc;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.project .repo-info h3 { margin-bottom: 10px; }
+.project .repo-info span { margin-right: 20px; }
+.project .bottom-links a i { color: #000; }
 
 .footer {
   clear: both;

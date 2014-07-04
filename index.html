@@ -4,7 +4,7 @@
     <title>Yelp &amp; Open Source</title>
     <link rel="stylesheet" type="text/css" href="css/styleguide.css">
     <link rel="stylesheet" type="text/css" href="css/yelp-opensource.css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/opensource-site.js"></script>
     <script src="js/projects.js"></script>
@@ -15,57 +15,53 @@
     <div id="wrap">
       <div class="app-header slim-header">
         <div class="header-container clearfix">
-          <h1 class="logo"><a href="/">Yelp</a></h1>
+          <h1 class="logo"><a href="http://yelp.com">Yelp</a></h1>
           <h2 class="header-title">Open Source</h2>
         </div>
       </div>
 
       <div class="top-shelf top-shelf-grey">
         <div class="container">
-          <div class="clearfix layout-block layout-h intro">
-            <div class="column column-alpha ">
-              <h1>Yelp <3 Open Source</h1>
-              <p>Yelp runs on open source projects and loves to contribute back to the community with projects of our own.</p>
-              <p>Take a look at projects we've open sourced and contributions we've made to existing projects.</p>
-            </div>
+          <h1>Yelp Open Source</h1>
+          <ul class='bullet-list-round'>
+            <li>Power your app with the same code Yelp uses every day</li>
+            <li>We love open source and want to give back with projects like mrjob</li>
+            <li>Get started today with <span class='projects-count'>0</span> projects from <span class='dev-count'>1</span> Yelp developers</li>
+          </ul>
+        </div>
+      </div>
 
-            <div class="column column-beta">
-              <p class='stats-users'>Users</p>
-              <p class='stats-stargazers'>Stargazers</p>
-              <p class='stats-forks'>Forks</p>
-              <p class='stats-projects'>Projects</p>
+      <div class='main-container layout-block layout-right-rail'>
+        <div class='column-alpha'>
+          <div class='titled-nav-list'>
+            <div class='titled-nav-title-section'>
+              Yelp Developers
             </div>
+            <ul class='titled-nav'>
+              <li><a href='http://yelp.com/developers'>Yelp API</a></li>
+              <li>
+                <a class='active'>Open Source</a>
+                <ul class='titled-subnav'>
+                  <li><a class='active'>Our Projects</a></li>
+                  <li><a>Contributed Projects</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <ul class="tabs-pill">
-        <li data-container="not-forked" class="tab inline-block not-forked selected">
-          <a>Our open source</a><span class="count">&nbsp;</span>
-        </li>
-        <li data-container="forked" class="tab inline-block forked">
-          <a>Open source we contribute to</a><span class="count">&nbsp;</span>
-        </li>
-      </ul>
+        <div class='column-beta'>
+          <div class="projects not-forked container">
+            <h2>Featured</h2>
+            <div class="featured"></div>
 
-      <div class="projects not-forked container">
-        <h2>Featured</h2>
-        <div class="featured">
+            <h2>Open sourced projects</h2>
+            <div class="not-featured"></div>
+          </div>
+
+          <div class="projects forked container">
+          </div>
         </div>
-
-        <h2>Open sourced projects</h2>
-        <div class="not-featured">
-        </div>
-
-        <fieldset class="hr-line">
-          <legend align="center">deprecated</legend>
-        </fieldset>
-
-        <div class="deprecated">
-        </div>
-      </div>
-
-      <div class="projects forked container">
       </div>
     </div>
 

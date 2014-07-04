@@ -12,15 +12,12 @@ $(document).ready(function() {
     });
 
     org.addReposToContainer($('.projects.not-forked .featured'), org.featuredRepos());
-    org.addReposToContainer($('.projects.not-forked .deprecated'), org.deprecatedRepos());
     org.addReposToContainer($('.projects.not-forked .not-featured'), org.regularRepos());
     org.addReposToContainer($('.projects.forked'), org.forkedRepos());
 
     $('.not-forked .count').html(org.forkedCount());
     $('.forked .count').html(org.notForkedCount());
 
-    $('.stats-stargazers').html(org.totalWatchers() + " stargazers watching our projects");
-    $('.stats-forks').html(org.totalForks() + " forks on our projects");
     $('.stats-projects').html(org.repos.length + " projects open sourced by us or being contributed to");
   });
 
