@@ -26,15 +26,14 @@ $(document).ready(function() {
     $('.stats-users').html("We have " + users + " Yelpers contributing to open source projects");
   });
 
-  $('.tabs-pill li').click(function(e) {
+  $('.titled-subnav a').click(function(e) {
     e.preventDefault();
 
-    $('.tabs-pill li').removeClass('selected');
+    $('.titled-subnav a').removeClass('active');
     $('.projects').hide();
+    $(e.target).addClass('active');
 
-    $(e.target.parentNode).addClass('selected');
-    var container = ".projects." + $(e.target.parentNode).data('container');
-
+    var container = ".projects." + $(e.target).data('container');
     $(container).show();
   });
 });
