@@ -2,7 +2,8 @@ oss_projects = {};
 oss_projects['mrjob'] = {
   blog_post: 'http://engineeringblog.yelp.com/2010/10/mrjob-distributed-computing-for-everybody.html',
   featured: true,
-  position: 1
+  position: 1,
+  logo: 'mrjob_logo.png'
 };
 oss_projects['yelp-ruby'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/04/more-yelp-in-your-ruby.html'

@@ -29,6 +29,12 @@ Repository.prototype.position = function() {
   }
 }
 
+Repository.prototype.logo = function() {
+  if (oss_projects[this.name] && oss_projects[this.name].logo) {
+    return oss_projects[this.name].logo;
+  }
+}
+
 Repository.prototype.classes = function() {
   if (this.featured()) {
     return 'featured-project';
@@ -63,10 +69,18 @@ Repository.prototype.featuredImage = function() {
   }
 }
 
+Repository.prototype.headerLogo = function() {
+  if (this.logo()) {
+    return '<img src="/img/' + this.logo() + '" height="21px" width="26px" class="logo"> ';
+  }
+}
+
 Repository.prototype.repoContent = function() {
   return [
     '<div class="island-item">',
-      '<h3><a href="', this.url, '" target="_blank">', this.name, '</a></h3>',
+      '<h3>',
+        '<a href="', this.url, '" target="_blank">', this.headerLogo(), this.name, '</a>',
+      '</h3>',
       '<div class="repo-info">',
         '<span><i class="fa fa-star"></i> ', this.watchers, '</span> ',
         '<span><i class="fa fa-code-fork"></i> ', this.forks, '</span>',

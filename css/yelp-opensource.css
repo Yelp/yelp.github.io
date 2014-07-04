@@ -47,6 +47,15 @@ h3 a i {
   padding: 0;
 }
 
+.project h3 {
+  margin-bottom: 10px;
+}
+
+.project .logo {
+  position: relative;
+  top: 5px;
+}
+
 .project .bottom-links {
   border-radius: 2px;
   width: 178px;
