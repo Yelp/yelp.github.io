@@ -35,6 +35,12 @@ Repository.prototype.logo = function() {
   }
 }
 
+Repository.prototype.background = function() {
+  if (oss_projects[this.name] && oss_projects[this.name].background) {
+    return oss_projects[this.name].background;
+  }
+}
+
 Repository.prototype.classes = function() {
   if (this.featured()) {
     return 'featured-project';
@@ -63,7 +69,7 @@ Repository.prototype.featuredImage = function() {
   if (this.featured()) {
     return [
       '<div class="island-item featured-image">',
-        '<img src="http://placehold.it/200x100">',
+        '<img src="/img/', this.background() ,'">',
       '</div>'
     ].join('');
   }
