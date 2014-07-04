@@ -13,8 +13,11 @@ h3 a i {
   width: 960px;
 }
 
-.layout-block .column-alpha { width: 25%; }
 .layout-block .column-beta { width: 75%; }
+.layout-block .column-alpha {
+  width: 25%;
+  margin-left: 0px;
+}
 
 .projects { width: 702px; }
 .projects.not-forked h2 { clear: both; }
