@@ -70,6 +70,7 @@ Repository.prototype.repoContent = function() {
       '<div class="repo-info">',
         '<span><i class="fa fa-star"></i> ', this.watchers, '</span> ',
         '<span><i class="fa fa-code-fork"></i> ', this.forks, '</span>',
+        '<span class="language ', this.language ,'">', this.language, '</span>',
       '</div>',
       '<p>', this.description, '</p>',
     '</div>'
