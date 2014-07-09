@@ -48,7 +48,7 @@ Organization.prototype.featuredRepos = function() {
   this.repos.forEach(function(repo) {
     if (repo.featured() && !repo.fork) {
       if (repo.position()) {
-        featured[repo.position()] = repo
+        featured[repo.position()-1] = repo
       } else {
         featured.push(repo);
       }
@@ -93,7 +93,7 @@ Organization.prototype.regularRepos = function() {
 }
 
 Organization.prototype.addReposToContainer = function(container, repos) {
-  repos.forEach(function(repo) {
-    container.append(repo.getContainer());
+  repos.forEach(function(repo, i) {
+    container.append(repo.getContainer(i+1));
   });
 }

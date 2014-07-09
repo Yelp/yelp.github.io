@@ -7,37 +7,54 @@ h3 a i {
   font-size: 14px;
 }
 
+.top-shelf .container {
+  padding: 0;
+}
+
+.top-shelf h1 {
+  padding-top: 42px;
+}
+
 .top-shelf-grey .container {
   background: url(/img/illustration.png) no-repeat right bottom;
   height: 220px;
-  width: 900px;
+  width: 960px;
 }
 
 .main-container {
   margin: 0 auto;
   margin-top: 30px;
-  width: 900px;
+  width: 960px;
 }
 
-.layout-block .column-beta { width: 75%; }
 .layout-block .column-alpha {
   width: 25%;
   margin-left: 0px;
 }
 
-.projects { width: 702px; }
+.layout-block .column-beta {
+  padding: 0;
+  width: 75%;
+}
+
+.projects h2 { padding-top: 15px; }
 .projects.not-forked h2 { clear: both; }
 .projects.forked { display: none; }
 
 .project.island {
   float: left;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  font-size: 12px;
+  margin-bottom: 24px;
+  margin-right: 30px;
 
   position: relative;
 
   height: 200px;
   width: 218px;
+}
+
+.project.island.last-in-row {
+  margin-right: 0px;
 }
 
 .project.island.featured-project {

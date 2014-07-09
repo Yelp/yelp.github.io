@@ -55,9 +55,15 @@ Repository.prototype.getBlogLink = function() {
   }
 }
 
-Repository.prototype.getContainer = function() {
+Repository.prototype.getContainer = function(index) {
+  var last = '';
+
+  if (index % 3 == 0) {
+    last = 'last-in-row'
+  }
+
   return [
-    '<div class="project island-light island-stack island ', this.language, ' ', this.classes(), '">',
+    '<div class="project island-light island-stack island ', this.language, ' ', this.classes(), ' ', last, '">',
       this.featuredImage(),
       this.repoContent(),
       this.bottomLinks(),
