@@ -15,10 +15,10 @@ $(document).ready(function() {
     org.addReposToContainer($('.projects.not-forked .not-featured'), org.regularRepos());
     org.addReposToContainer($('.projects.forked'), org.forkedRepos());
 
-    $('.not-forked .count').html(org.forkedCount());
-    $('.forked .count').html(org.notForkedCount());
-
-    $('.stats-projects').html(org.repos.length + " projects open sourced by us or being contributed to");
+    $('.project-count').html(org.forkedCount());
+    $.get('https://api.github.com/orgs/yelp/members', function(data) {
+      $('.dev-count').html(data.length);
+    });
   });
 
   $.get('https://api.github.com/orgs/yelp/members', function(data) {
