@@ -132,6 +132,10 @@ h3 a i {
   clear: both;
 }
 
+.footer-language, .footer-country {
+  display: block;
+}
+
 
 /* Octicon changes */
 .octicon.octicon-star { font-size: 14px; }
