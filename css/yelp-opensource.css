@@ -37,7 +37,10 @@ h3 a i {
   width: 75%;
 }
 
-.projects h2 { padding-top: 15px; }
+.projects h2 {
+  padding-top: 15px;
+  padding-bottom: 6px;
+}
 .projects.not-forked h2 { clear: both; }
 .projects.forked { display: none; }
 
