@@ -12,12 +12,12 @@ h3 a i {
 }
 
 .top-shelf h1 {
-  padding-top: 42px;
+  padding-top: 52px;
 }
 
 .top-shelf-grey .container {
   background: url(/img/illustration.png) no-repeat right bottom;
-  height: 220px;
+  height: 240px;
   width: 960px;
 }
 
@@ -116,7 +116,10 @@ h3 a i {
   margin-bottom: 10px;
 }
 
-.project .repo-info .language { font-weight: bold; }
+.project .repo-info .language {
+  color: #999;
+  font-weight: bold;
+}
 .project .repo-info .Python { color: #228222; }
 .project .repo-info .Ruby { color: #d83800; }
 
@@ -127,3 +130,8 @@ h3 a i {
 .footer {
   clear: both;
 }
+
+
+/* Octicon changes */
+.octicon.octicon-star { font-size: 14px; }
+.octicon.octicon-repo-forked { font-size: 12px; }

@@ -51,7 +51,7 @@ Repository.prototype.classes = function() {
 
 Repository.prototype.getBlogLink = function() {
   if (this.blogPost()) {
-    return '<a href="'+ this.blogPost() +'" target="_blank"><i class="fa fa-file-text-o"></i> Blog post</a> ';
+    return '<a href="'+ this.blogPost() +'" target="_blank"><span class="octicon octicon-file-text"></span> Blog post</a> ';
   }
 }
 
@@ -94,8 +94,8 @@ Repository.prototype.repoContent = function() {
         '<a href="', this.url, '" target="_blank">', this.headerLogo(), this.name, '</a>',
       '</h3>',
       '<div class="repo-info">',
-        '<span><i class="fa fa-star"></i> ', this.watchers, '</span> ',
-        '<span><i class="fa fa-code-fork"></i> ', this.forks, '</span>',
+        '<span><i class="octicon octicon-star"></i> ', this.watchers, '</span> ',
+        '<span><i class="octicon octicon-repo-forked"></i> ', this.forks, '</span>',
         '<span class="language ', this.language ,'">', this.language, '</span>',
       '</div>',
       '<p>', this.description, '</p>',
