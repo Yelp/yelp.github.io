@@ -42,6 +42,7 @@ h3 a i {
 .projects.forked { display: none; }
 
 .project.island {
+  cursor: pointer;
   float: left;
   font-size: 12px;
   margin-bottom: 24px;
