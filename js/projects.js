@@ -1,4 +1,7 @@
 oss_projects = {};
+oss_projects['dockersh'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2014/08/hack209-dockersh.html',
+}
 oss_projects['MOE'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/07/introducing-moe-metric-optimization-engine-a-new-open-source-machine-learning-service-for-optimal-ex.html',
   featured: true,
