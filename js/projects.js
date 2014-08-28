@@ -1,6 +1,9 @@
 oss_projects = {};
 oss_projects['dockersh'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/08/hack209-dockersh.html',
+  featured: true,
+  position: 3,
+  background: 'dockersh_bg.png'
 }
 oss_projects['MOE'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/07/introducing-moe-metric-optimization-engine-a-new-open-source-machine-learning-service-for-optimal-ex.html',
@@ -21,9 +24,6 @@ oss_projects['yelp-ruby'] = {
 };
 oss_projects['firefly'] = {
   blog_post: 'http://engineeringblog.yelp.com/2012/08/firefly-illuminate-your-websites-performance.html',
-  featured: true,
-  position: 3,
-  background: 'firefly_bg.png'
 };
 
 oss_projects['zygote'] = { deprecated: true }
