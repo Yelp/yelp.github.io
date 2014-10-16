@@ -25,6 +25,9 @@ oss_projects['yelp-ruby'] = {
 oss_projects['firefly'] = {
   blog_post: 'http://engineeringblog.yelp.com/2012/08/firefly-illuminate-your-websites-performance.html',
 };
+oss_projects['pyleus'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2014/10/introducing-pyleus.html',
+};
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
