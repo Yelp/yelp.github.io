@@ -1,5 +1,16 @@
+p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 h3 a {
   color: #c41200;
+
+  /* Some project names are too long :( */
+  overflow: hidden;
+  display: inline-block;
+  width: 200px;
+  text-overflow: ellipsis;
 }
 
 h3 a i {
