@@ -39,13 +39,9 @@ h3 a i {
 }
 
 .layout-block .column-alpha {
-  width: 25%;
-  margin-left: 0px;
-}
-
-.layout-block .column-beta {
+  margin-left: 0;
   padding: 0;
-  width: 75%;
+  width: 100%;
 }
 
 .projects h2 {
@@ -60,7 +56,7 @@ h3 a i {
   float: left;
   font-size: 12px;
   margin-bottom: 24px;
-  margin-right: 30px;
+  margin-right: 20px;
 
   position: relative;
 
