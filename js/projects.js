@@ -5,12 +5,11 @@ oss_projects['dockersh'] = {
   position: 3,
   background: 'dockersh_bg.png'
 }
-oss_projects['MOE'] = {
-  blog_post: 'http://engineeringblog.yelp.com/2014/07/introducing-moe-metric-optimization-engine-a-new-open-source-machine-learning-service-for-optimal-ex.html',
+oss_projects['osxcollector'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2015/01/osxcollector-forensic-collection-and-automated-analysis-for-os-x.html',
   featured: true,
   position: 1,
-  logo: 'moe_logo.png',
-  background: 'moe_bg.png'
+  background: 'osxcollector_bg.png'
 };
 oss_projects['mrjob'] = {
   blog_post: 'http://engineeringblog.yelp.com/2010/10/mrjob-distributed-computing-for-everybody.html',
@@ -28,6 +27,9 @@ oss_projects['firefly'] = {
 oss_projects['pyleus'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/10/introducing-pyleus.html',
 };
+oss_projects['MOE'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2014/07/introducing-moe-metric-optimization-engine-a-new-open-source-machine-learning-service-for-optimal-ex.html'
+}
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
