@@ -2,22 +2,27 @@ oss_projects = {};
 oss_projects['dockersh'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/08/hack209-dockersh.html',
   featured: true,
-  position: 3,
+  position: 4,
   background: 'dockersh_bg.png'
 }
 oss_projects['osxcollector'] = {
   blog_post: 'http://engineeringblog.yelp.com/2015/01/osxcollector-forensic-collection-and-automated-analysis-for-os-x.html',
   featured: true,
-  position: 1,
+  position: 2,
   background: 'osxcollector_bg.png'
 };
 oss_projects['mrjob'] = {
   blog_post: 'http://engineeringblog.yelp.com/2010/10/mrjob-distributed-computing-for-everybody.html',
   featured: true,
-  position: 2,
+  position: 3,
   logo: 'mrjob_logo.png',
   background: 'mrjob_bg.png'
 };
+oss_projects['elastalert'] = {
+  featured: true,
+  position: 1,
+  background: 'elastalert.png'
+}
 oss_projects['yelp-ruby'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/04/more-yelp-in-your-ruby.html'
 };
