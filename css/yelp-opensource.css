@@ -45,11 +45,10 @@ h3 a i {
 }
 
 .projects h2 {
+  clear: both;
   padding-top: 15px;
   padding-bottom: 6px;
 }
-.projects.not-forked h2 { clear: both; }
-.projects.forked { display: none; }
 
 .project.island {
   cursor: pointer;
