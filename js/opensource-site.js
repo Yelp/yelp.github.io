@@ -11,9 +11,8 @@ $(document).ready(function() {
       org.repos.push(new Repository(repository));
     });
 
-    org.addReposToContainer($('.projects.not-forked .featured'), org.featuredRepos());
-    org.addReposToContainer($('.projects.not-forked .not-featured'), org.regularRepos());
-    org.addReposToContainer($('.projects.forked'), org.forkedRepos());
+    org.addReposToContainer($('.projects .featured'), org.featuredRepos());
+    org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
 
     $('.project-count').html(org.forkedCount());
     $.get('https://api.github.com/orgs/yelp/members', function(data) {

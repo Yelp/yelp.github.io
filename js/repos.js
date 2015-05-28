@@ -57,7 +57,7 @@ Repository.prototype.getBlogLink = function() {
 
 Repository.prototype.getContainer = function(index) {
   var last = '';
-  if (index % 3 == 0) { last = 'last-in-row' }
+  if (index % 4 == 0) { last = 'last-in-row' }
 
   return [
     '<div class="project island-light island-stack island ', this.language, ' ', this.classes(), ' ', last, '">',
