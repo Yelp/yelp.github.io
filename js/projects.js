@@ -18,6 +18,7 @@ oss_projects['paasta'] = {
   background: 'paasta_bg.png'
 };
 oss_projects['elastalert'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2015/10/elastalert-alerting-at-scale-with-elasticsearch.html',
   featured: true,
   position: 2,
   background: 'elastalert.png'
