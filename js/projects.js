@@ -37,6 +37,12 @@ oss_projects['pyleus'] = {
 oss_projects['MOE'] = {
   blog_post: 'http://engineeringblog.yelp.com/2014/07/introducing-moe-metric-optimization-engine-a-new-open-source-machine-learning-service-for-optimal-ex.html'
 }
+oss_projects['fullerite'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2015/10/fullerite-a-new-mineral-to-collect-metrics.html'
+}
+oss_projects['mycroft'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2015/04/mycroft-load-data-into-redshift-automatically.html'
+}
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
