@@ -6,19 +6,30 @@ $(document).ready(function() {
   var repos = [];
   var org = new Organization('yelp', []);
 
-  $.get('https://api.github.com/users/yelp/repos?per_page=100', function(data) {
-    data.forEach(function(repository) {
-      org.repos.push(new Repository(repository));
-    });
+  loadRepositories = function(org, page) {
+    page = page || 1;
 
-    org.addReposToContainer($('.projects .featured'), org.featuredRepos());
-    org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
+    $.get('https://api.github.com/users/yelp/repos?per_page=100&page=' + parseInt(page), function(data) {
+      if (data.length > 0) {
+        data.forEach(function(repository) {
+          org.repos.push(new Repository(repository));
+        });
 
-    $('.project-count').html(org.forkedCount());
-    $.get('https://api.github.com/orgs/yelp/members', function(data) {
-      $('.dev-count').html(data.length);
+        loadRepositories(org, page + 1);
+      }
+      else {
+        org.addReposToContainer($('.projects .featured'), org.featuredRepos());
+        org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
+
+        $('.project-count').html(org.forkedCount());
+        $.get('https://api.github.com/orgs/yelp/members', function(data) {
+          $('.dev-count').html(data.length);
+        });
+      }
     });
-  });
+  }
+
+  loadRepositories(org);
 
   $.get('https://api.github.com/orgs/yelp/members', function(data) {
     users = data.length
