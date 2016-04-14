@@ -44,6 +44,9 @@ oss_projects['fullerite'] = {
 oss_projects['mycroft'] = {
   blog_post: 'http://engineeringblog.yelp.com/2015/04/mycroft-load-data-into-redshift-automatically.html'
 }
+oss_projects['YLTableView'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2015/06/advanced-uitableviews-made-simple-yltableview.html'
+}
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
