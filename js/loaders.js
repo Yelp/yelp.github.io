@@ -1,24 +1,28 @@
-function getGithubRepos(callback, page, repos) {
+function getAllPages(urlPrefix, callback, page, results) {
   page = page || 1;
-  repos = repos || [];
+  results = results || [];
 
-  var url = 'https://api.github.com/users/yelp/repos?per_page=100&page=' + parseInt(page);
+  var url = urlPrefix + '?per_page=100&page=' + parseInt(page);
 
   $.get(url, function(data) {
     if (data.length > 0) {
-      data.forEach(function(repoDatum) {
-        repos.push(repoDatum);
+      data.forEach(function(resultDatum) {
+        results.push(resultDatum);
       });
-      getGithubRepos(callback, page + 1, repos);
+      getAllPages(urlPrefix, callback, page + 1, results);
     }
     else {
-      callback(repos);
+      callback(results);
     }
   });
 }
 
+function getGithubRepos(callback, page, repos) {
+  getAllPages('https://api.github.com/users/yelp/repos', callback);
+}
+
 function getGithubMembers(callback) {
-  $.get('https://api.github.com/orgs/yelp/members', callback);
+  getAllPages('https://api.github.com/orgs/yelp/members', callback);
 }
 
 function loadRepositoryData(repoData) {
