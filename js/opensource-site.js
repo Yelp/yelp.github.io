@@ -5,11 +5,13 @@ $(document).ready(function() {
   var forked = 0;
   var repos = [];
   var org = new Organization('yelp', []);
+  var GITHUB_CLIENT_ID = '1bafa09b6086eec7afb4';
+  var GITHUB_CLIENT_SECRET = '7e6422a0a2e24f0d0ecb7521a63990b5758c9cc8';
 
   loadRepositories = function(org, page) {
     page = page || 1;
 
-    $.get('https://api.github.com/users/yelp/repos?per_page=100&page=' + parseInt(page), function(data) {
+    $.get('https://api.github.com/users/yelp/repos?per_page=100&client_id='+GITHUB_CLIENT_ID+'&client_secret='+GITHUB_CLIENT_SECRET+'&page=' + parseInt(page), function(data) {
       if (data.length > 0) {
         data.forEach(function(repository) {
           org.repos.push(new Repository(repository));
@@ -31,7 +33,7 @@ $(document).ready(function() {
 
   loadRepositories(org);
 
-  $.get('https://api.github.com/orgs/yelp/members', function(data) {
+  $.get('https://api.github.com/orgs/yelp/members?client_id='+GITHUB_CLIENT_ID+'&client_secret='+GITHUB_CLIENT_SECRET, function(data) {
     users = data.length
     $('.stats-users').html("We have " + users + " Yelpers contributing to open source projects");
   });
