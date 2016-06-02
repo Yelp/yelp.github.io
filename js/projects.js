@@ -60,3 +60,5 @@ oss_projects['dateglob'] = { deprecated: true }
 oss_projects['PushmasterApp'] = { deprecated: true }
 oss_projects['thehub'] = { deprecated: true }
 oss_projects['SWFUpload'] = { deprecated: true }
+
+// vim: sw=2 sts=2 expandtab
