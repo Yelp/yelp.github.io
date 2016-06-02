@@ -1,32 +1,4 @@
 $(document).ready(function() {
-  var org = new Organization('yelp', []);
-
-  loadRepositories = function(repoData) {
-    org.repos = [];
-
-    repoData.forEach(function(repoDatum) {
-      org.repos.push(new Repository(repoDatum));
-    });
-
-    $('.projects .featured').empty();
-    $('.projects .not-featured').empty();
-
-    org.addReposToContainer($('.projects .featured'), org.featuredRepos());
-    org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
-
-    $('.project-count').html(org.forkedCount());
-  }
-
-  loadMembers = function(members) {
-    $('.dev-count').html(members.length);
-  }
-
-  getCachedRepos(org, loadRepositories);
-  getCachedMembers(org, loadMembers);
-
-  getGithubRepos(org, loadRepositories);
-  getGithubMembers(org, loadMembers);
-
   $('.titled-subnav a').click(function(e) {
     e.preventDefault();
 

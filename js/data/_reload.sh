@@ -2,23 +2,24 @@
 
 cd $(dirname $0)
 
-# repos.json
-
-get_repos() {
+get_all_pages() {
+  local url_prefix="$1"
   local outfile=$(mktemp)
   local response=
+  local page_size=100
   local page=1
 
   while [ "$response" != "[]" ]
   do
-    url="https://api.github.com/users/yelp/repos?per_page=100&page=$page"
+    local url="$url_prefix?per_page=$page_size&page=$page"
     echo "$url" >&2
 
     response=$(curl -sf "$url" | jq . | tee -a "$outfile")
 
-    if [ $? -eq 0 ]
+    if [ $? -ne 0 ]
     then
       echo "curl failed, so I'm gonna get out of here." >&2
+      echo "[]"
       exit 1
     fi
 
@@ -28,8 +29,18 @@ get_repos() {
   cat "$outfile" | jq '.[]' | jq -s .
 }
 
-get_repos || echo '[]' > repos.json
+# Repos
 
-# members.json
+get_repos() {
+  get_all_pages 'https://api.github.com/users/yelp/repos'
+}
 
-curl -sf "https://api.github.com/orgs/yelp/members" || echo '[]' > members.json
+(echo -n '$(function() { loadRepositoryData(' ; get_repos ; echo '); })') > load_repos.js
+
+# Members
+
+get_members() {
+  get_all_pages 'https://api.github.com/orgs/yelp/members'
+}
+
+(echo -n '$(function() { loadMemberData(' ; get_members ; echo '); })') > load_members.js
