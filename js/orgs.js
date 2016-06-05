@@ -1,6 +1,6 @@
 Organization = function(name, repos) {
   this.name = name;
-  this.repos = repos;
+  this.repos = repos || [];
 }
 
 Organization.prototype.totalForks = function() {
@@ -97,3 +97,5 @@ Organization.prototype.addReposToContainer = function(container, repos) {
     container.append(repo.getContainer(i+1));
   });
 }
+
+// vim: sw=2 sts=2 expandtab
