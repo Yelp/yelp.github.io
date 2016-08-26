@@ -47,6 +47,9 @@ oss_projects['mycroft'] = {
 oss_projects['YLTableView'] = {
   blog_post: 'http://engineeringblog.yelp.com/2015/06/advanced-uitableviews-made-simple-yltableview.html'
 }
+oss_projects['amira'] = {
+  blog_post: 'http://engineeringblog.yelp.com/2016/08/amira-automated-malware-incident-response-and-analysis.html'
+}
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
