@@ -53,6 +53,15 @@ oss_projects['amira'] = {
 oss_projects['dumb-init'] = {
   blog_post: 'https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html'
 }
+oss_projects['data_pipeline'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2016/07/billions-of-messages-a-day-yelps-real-time-data-pipeline.html'
+}
+oss_projects['mysql_streamer'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2016/08/streaming-mysql-tables-in-real-time-to-kafka.html'
+}
+oss_projects['schematizer'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2016/08/more-than-just-a-schema-store.html'
+}
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
