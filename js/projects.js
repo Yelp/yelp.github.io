@@ -62,6 +62,16 @@ oss_projects['mysql_streamer'] = {
 oss_projects['schematizer'] = {
   blog_post: 'https://engineeringblog.yelp.com/2016/08/more-than-just-a-schema-store.html'
 }
+oss_projects['beans'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2017/02/open-sourcing-yelp-beans.html'
+}
+oss_projects['love'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2017/02/open-sourcing-yelp-love.html'
+}
+oss_projects['undebt'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2016/08/undebt-how-we-refactored-3-million-lines-of-code.html'
+}
+
 
 oss_projects['zygote'] = { deprecated: true }
 oss_projects['s3mysqldump'] = { deprecated: true }
