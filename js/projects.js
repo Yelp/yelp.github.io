@@ -1,9 +1,6 @@
 oss_projects = {};
 oss_projects['dockersh'] = {
-  blog_post: 'https://engineeringblog.yelp.com/2014/08/hack209-dockersh.html',
-  featured: true,
-  position: 4,
-  background: 'dockersh_bg.png'
+  blog_post: 'https://engineeringblog.yelp.com/2014/08/hack209-dockersh.html'
 }
 oss_projects['osxcollector'] = {
   blog_post: 'https://engineeringblog.yelp.com/2015/01/osxcollector-forensic-collection-and-automated-analysis-for-os-x.html',
@@ -51,7 +48,10 @@ oss_projects['amira'] = {
   blog_post: 'https://engineeringblog.yelp.com/2016/08/amira-automated-malware-incident-response-and-analysis.html'
 }
 oss_projects['dumb-init'] = {
-  blog_post: 'https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html'
+  blog_post: 'https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html',
+  featured: true,
+  position: 4,
+  background: 'dumb-init.png'
 }
 oss_projects['data_pipeline'] = {
   blog_post: 'https://engineeringblog.yelp.com/2016/07/billions-of-messages-a-day-yelps-real-time-data-pipeline.html'
