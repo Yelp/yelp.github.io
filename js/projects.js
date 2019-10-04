@@ -4,9 +4,6 @@ oss_projects['dockersh'] = {
 }
 oss_projects['osxcollector'] = {
   blog_post: 'https://engineeringblog.yelp.com/2015/01/osxcollector-forensic-collection-and-automated-analysis-for-os-x.html',
-  featured: true,
-  position: 3,
-  background: 'osxcollector_bg.png'
 };
 oss_projects['paasta'] = {
   blog_post: 'https://engineeringblog.yelp.com/2015/11/introducing-paasta-an-open-platform-as-a-service.html',
@@ -69,7 +66,10 @@ oss_projects['love'] = {
   blog_post: 'https://engineeringblog.yelp.com/2017/02/open-sourcing-yelp-love.html'
 }
 oss_projects['undebt'] = {
-  blog_post: 'https://engineeringblog.yelp.com/2016/08/undebt-how-we-refactored-3-million-lines-of-code.html'
+  blog_post: 'https://engineeringblog.yelp.com/2016/08/undebt-how-we-refactored-3-million-lines-of-code.html',
+  featured: true,
+  position: 3,
+  background: 'undebt.png'
 }
 
 
