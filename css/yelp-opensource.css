@@ -143,3 +143,21 @@ h3 a i {
 /* Octicon changes */
 .octicon.octicon-star { font-size: 14px; }
 .octicon.octicon-repo-forked { font-size: 12px; }
+
+
+/* sticky header */
+div.stick {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+/* background image */
+.background {
+  /* background-image: repeating-radial-gradient(red, yellow 10%, green 15%); */
+  background-image: url("../img/black_texture.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  background-color: #cccccc;
+}
