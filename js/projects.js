@@ -71,6 +71,9 @@ oss_projects['undebt'] = {
   position: 3,
   background: 'undebt.png'
 }
+oss_projects['detect-secrets'] = {
+  blog_post: 'https://engineeringblog.yelp.com/2018/06/yelps-secret-detector.html',
+}
 
 
 oss_projects['zygote'] = { deprecated: true }
